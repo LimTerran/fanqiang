@@ -23,8 +23,8 @@ import java.util.concurrent.TimeUnit
 
 
 class UpdateCheck(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
+    val url =context.resources.getString(R.string.update_check_url)
     companion object {
-        const val url ="https://raw.githubusercontent.com/bannedbook/JWBrowser/master/update.json" //google play 发布，禁止自主更新
         fun enqueue() = WorkManager.getInstance(Core.deviceStorage).enqueueUniquePeriodicWork(
                 "UpdateCheck", ExistingPeriodicWorkPolicy.KEEP,
                 PeriodicWorkRequestBuilder<UpdateCheck>(1, TimeUnit.DAYS).run {

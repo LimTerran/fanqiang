@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+set -x
 apt-get update
 apt-get install curl wget -y
 iptables -A OUTPUT -p tcp --dport 25 -j REJECT
@@ -11,12 +13,17 @@ sysctl -p
 bash <(curl -L -s https://install.direct/go.sh)
 wget https://raw.githubusercontent.com/bannedbook/fanqiang/master/v2ss/server-cfg/v2ray.service  -O -> /etc/systemd/system/v2ray.service
 systemctl daemon-reload
-cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-wget https://raw.githubusercontent.com/bannedbook/fanqiang/master/v2ss/server-cfg/v2ray_check.sh  -O -> /etc/v2ray/v2ray_check.sh
-chmod +x /etc/v2ray/v2ray_check.sh
-wget https://raw.githubusercontent.com/bannedbook/fanqiang/master/v2ss/server-cfg/crontab.txt  -O -> /var/spool/cron/crontabs/root
-/etc/init.d/cron restart
+timedatectl set-timezone Asia/Singapore
 wget https://raw.githubusercontent.com/bannedbook/fanqiang/master/v2ss/server-cfg/resolv.conf  -O -> resolv.conf
 cp resolv.conf /etc/resolv.conf
 service v2ray start
-cat /etc/v2ray/config.json
+apt-get -y install nginx
+wget https://raw.githubusercontent.com/bannedbook/fanqiang/master/v2ss/server-cfg/v2ss-nginx.conf  -O -> /etc/nginx/nginx.conf
+nginx -t
+nginx -s reload
+wget https://raw.githubusercontent.com/bannedbook/fanqiang/master/v2ss/server-cfg/v2ray_check.sh  -O -> /etc/v2ray/v2ray_check.sh
+chmod +x /etc/v2ray/v2ray_check.sh
+cat /etc/v2ray/v2ray_check.sh
+wget https://raw.githubusercontent.com/bannedbook/fanqiang/master/v2ss/server-cfg/crontab.txt  -O -> /var/spool/cron/crontabs/root
+/etc/init.d/cron restart
+

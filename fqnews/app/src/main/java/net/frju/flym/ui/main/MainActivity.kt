@@ -38,6 +38,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.shadowsocks.Core
+import com.github.shadowsocks.work.UpdateCheck
 import com.rometools.opml.feed.opml.Attribute
 import com.rometools.opml.feed.opml.Opml
 import com.rometools.opml.feed.opml.Outline
@@ -304,10 +305,11 @@ class MainActivity : AppCompatActivity(), MainNavigator, AnkoLogger {
 		AutoRefreshJobService.initAutoRefresh(this)
 
 		handleImplicitIntent(intent)
+		UpdateCheck.enqueue() //google play Publishing, prohibiting self-renewal
 	}
 
 	private fun addBnewsFeeds(){
-		val feeds = arrayOf(
+		val allFeeds = arrayOf(
 				arrayOf("每日头条", "https://feeds.feedburner.com/imagenews"),
 				arrayOf("中共禁闻", "https://feeds.feedburner.com/bannedbook/DEZI"),
 				arrayOf("中国新闻", "https://feeds.feedburner.com/bnews/cnnews"),
@@ -336,7 +338,19 @@ class MainActivity : AppCompatActivity(), MainNavigator, AnkoLogger {
 				arrayOf("禁闻博客", "https://www.inoreader.com/stream/user/1005659457/tag/bblog")
 		)
 
+		val necessaryFeeds = arrayOf(
+				arrayOf("每日头条", "https://feeds.feedburner.com/imagenews"),
+				arrayOf("中共禁闻", "https://feeds.feedburner.com/bannedbook/DEZI"),
+				arrayOf("中国新闻", "https://feeds.feedburner.com/bnews/cnnews"),
+				arrayOf("大陆新闻", "https://feeds.feedburner.com/bnews/djynews"),
+				arrayOf("禁闻评论", "https://feeds.feedburner.com/bnews/comments")
+		)
+
+
 		doAsync {
+			var feeds = necessaryFeeds
+			if (App.db.feedDao().all.isEmpty()) feeds= allFeeds
+
 			for (k in feeds.indices) {
 				var feed=App.db.feedDao().findByLink(feeds[k][1])
 				if (feed==null){

@@ -1,5 +1,6 @@
 # 翻墙-科学上网、翻墙工具、翻墙教程项目库。
 <ul >
+    <li class="Box-row"><strong><a href="https://github.com/bannedbook/fanqiang/wiki/%E7%A6%81%E9%97%BB%E7%BD%91%E5%AE%89%E5%8D%93%E7%BF%BB%E5%A2%99%E6%96%B0%E9%97%BBAPP">安卓翻墙新闻APP(FQNews APP)</a></strong></li>
     <li class="Box-row">
           <strong><a class="d-block" href="https://github.com/bannedbook/fanqiang/wiki/%E5%AE%89%E5%8D%93%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6#JWBrowser">禁闻浏览器（JWBrowser）</a></strong>
         </li>
@@ -15,7 +16,9 @@
         <li class="Box-row">
           <strong><a class="d-block" href="https://github.com/bannedbook/fanqiang/wiki/XX-Net%E7%BF%BB%E5%A2%99">XX Net翻墙</a></strong>
         </li>
-
+  <li>
+      <strong><a href="https://github.com/fqnews/bnews/blob/master/readme.md">免翻墙：每日热点禁闻</a></strong>
+    </li>
   <li class="Box-row">
           <strong><a class="d-block" href="https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E8%87%AA%E5%BB%BAV2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.md">自建V2ray服务器翻墙简明教程</a></strong>
         </li>
@@ -49,8 +52,7 @@
 <b>推荐：</b><br>
 <a href="https://github.com/killgcd/justmysocks/blob/master/README.md"><img src="https://raw.githubusercontent.com/killgcd/justmysocks/master/images/bwgss.jpg" alt="搬瓦工翻墙 Just My Socks"></a>
 
-<b>下载本项目，更多下载点：<a class="d-block" href="https://github.com/bannedbook/fanqiang/wiki/Chrome%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85">Chrome一键翻墙包</a></b>，下载后打开ChromeGo目录启动翻墙脚本。<br>
-<img src="https://github.com/killgcd/chromego/blob/master/%E4%B8%8B%E8%BD%BDchromego.jpg?raw=true" alt="下载chromego.jpg">
+<b>下载PC翻墙软件：<a class="d-block" href="https://github.com/bannedbook/fanqiang/wiki/Chrome%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85">Chrome一键翻墙包</a></b>，下载后打开ChromeGo目录启动翻墙脚本。
 
 <b>使用本软件</b><br>
 请首先自行安装Google Chrome 浏览器，然后下载本软件，本软件会自动调用Google Chrome 浏览器翻墙。
